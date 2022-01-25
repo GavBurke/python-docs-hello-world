@@ -1,6 +1,11 @@
 from flask import Flask
+
 app = Flask(__name__)
+
+@app.route("/test/")
+def test()
+    return "<p>Hello from /test/ page!</p>"
 
 @app.route("/")
 def hello():
-    return "Hello, from gavinburke.azurewebsites.net"
+    return "<p>Hello, from gavinburke.azurewebsites.net</p>"
