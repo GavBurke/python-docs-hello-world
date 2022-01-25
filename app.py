@@ -1,4 +1,5 @@
 from flask import Flask
+from markupsafe import escape
 
 app = Flask(__name__)
 
@@ -8,4 +9,8 @@ def hello():
 
 @app.route("/test")
 def test():
-    return "<p>Hello from /test page!</p>"
+    return "<p>Hello from specific /test page!</p>"
+
+@app.route('/<path:anything>')
+def show_anything(anything):
+    return f'<p>Hello from dynamic {escape(anything)} page</p>'
